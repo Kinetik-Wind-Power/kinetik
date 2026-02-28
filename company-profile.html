@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetik Wind Power — Company Profile</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ── Reset & Base ── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #1B3A8C;
+            --blue-dark: #0D1B3E;
+            --green: #2ECC40;
+            --green-dark: #25a233;
+            --gray: #5A6275;
+            --light: #F5F7FA;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1A1A2E;
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* ── Page Setup for A4 Print ── */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            background: var(--white);
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* ════════════════════════════════════════
+       PAGE 1 — COVER / HERO + ABOUT
+       ════════════════════════════════════════ */
+
+        .page-1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            height: 130mm;
+            background: linear-gradient(135deg, rgba(13, 27, 62, 0.88), rgba(27, 58, 140, 0.78)),
+                url('assets/images/hero/hero-wind-turbines.png') center/cover no-repeat;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 15mm;
+        }
+
+        .hero-banner .logo {
+            position: absolute;
+            top: 10mm;
+            left: 15mm;
+            height: 14mm;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(46, 204, 64, 0.15);
+            border: 1px solid rgba(46, 204, 64, 0.35);
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 8pt;
+            font-weight: 500;
+            color: var(--green);
+            margin-bottom: 6mm;
+            width: fit-content;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        .hero-banner h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28pt;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 5mm;
+        }
+
+        .hero-banner h1 .accent {
+            color: var(--green);
+        }
+
+        .hero-banner p {
+            font-size: 10.5pt;
+            opacity: 0.85;
+            max-width: 130mm;
+            line-height: 1.7;
+        }
+
+        /* Stats Strip */
+        .stats-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: var(--blue-dark);
+            padding: 5mm 15mm;
+        }
+
+        .stat {
+            text-align: center;
+            color: var(--white);
+            border-right: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 2mm 0;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat .number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20pt;
+            font-weight: 700;
+            color: var(--green);
+            line-height: 1.2;
+        }
+
+        .stat .label {
+            font-size: 7pt;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 1mm;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 8mm 15mm;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8mm;
+            flex: 1;
+        }
+
+        .about-section h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16pt;
+            color: var(--blue-dark);
+            margin-bottom: 4mm;
+        }
+
+        .about-section h2 .line {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--green));
+            border-radius: 2px;
+            margin-top: 3mm;
+        }
+
+        .about-section p {
+            font-size: 9pt;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 3mm;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3mm;
+            margin-top: 4mm;
+        }
+
+        .highlight {
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+            padding: 3mm 4mm;
+            background: var(--light);
+            border-radius: 6px;
+            font-size: 8pt;
+            font-weight: 600;
+            color: var(--blue-dark);
+        }
+
+        .highlight .icon {
+            font-size: 12pt;
+            flex-shrink: 0;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .about-image .badge {
+            position: absolute;
+            bottom: 4mm;
+            left: 4mm;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            color: var(--white);
+            padding: 3mm 5mm;
+            border-radius: 6px;
+            font-size: 7pt;
+        }
+
+        .about-image .badge .big {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16pt;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        /* ════════════════════════════════════════
+       PAGE 2 — SERVICES + CONTACT
+       ════════════════════════════════════════ */
+
+        .page-2 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Services Header */
+        .services-header {
+            padding: 7mm 15mm 2mm;
+        }
+
+        .services-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16pt;
+            color: var(--blue-dark);
+        }
+
+        .services-header h2 .line {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--green));
+            border-radius: 2px;
+            margin-top: 3mm;
+        }
+
+        .services-header p {
+            font-size: 9pt;
+            color: var(--gray);
+            margin-top: 2mm;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3mm;
+            padding: 3mm 15mm;
+        }
+
+        .svc-card {
+            background: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #E8ECF2;
+        }
+
+        .svc-card .svc-img {
+            height: 24mm;
+            overflow: hidden;
+        }
+
+        .svc-card .svc-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .svc-card .svc-body {
+            padding: 3mm 4mm;
+        }
+
+        .svc-card h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 8.5pt;
+            color: var(--blue-dark);
+            margin-bottom: 1mm;
+        }
+
+        .svc-card p {
+            font-size: 6.5pt;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Why Choose Us Strip */
+        .why-strip {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+            padding: 5mm 15mm;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5mm;
+            margin: 3mm 15mm;
+            border-radius: 10px;
+        }
+
+        .why-item {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .why-item .icon {
+            font-size: 18pt;
+            margin-bottom: 2mm;
+        }
+
+        .why-item h4 {
+            font-size: 8pt;
+            font-weight: 700;
+            margin-bottom: 1mm;
+        }
+
+        .why-item p {
+            font-size: 6.5pt;
+            opacity: 0.7;
+            line-height: 1.5;
+        }
+
+        /* Contact Footer */
+        .contact-bar {
+            margin-top: auto;
+            background: var(--blue-dark);
+            padding: 6mm 15mm;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 6mm;
+            color: var(--white);
+        }
+
+        .contact-bar .brand-col img {
+            height: 12mm;
+            margin-bottom: 3mm;
+        }
+
+        .contact-bar .brand-col p {
+            font-size: 7pt;
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+
+        .contact-bar h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            margin-bottom: 3mm;
+            color: var(--green);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 2mm;
+            font-size: 7.5pt;
+            margin-bottom: 2mm;
+            align-items: flex-start;
+        }
+
+        .contact-item .ci-icon {
+            flex-shrink: 0;
+            font-size: 9pt;
+            margin-top: -0.5mm;
+        }
+
+        .contact-item span {
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        .team-list {
+            font-size: 7pt;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .team-list strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Decorative footer line */
+        .footer-line {
+            height: 4px;
+            background: linear-gradient(90deg, var(--blue), var(--green), var(--blue));
+        }
+
+        /* ── Print Styles ── */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        /* ── Screen preview ── */
+        @media screen {
+            body {
+                background: #E0E0E0;
+                padding: 20px 0;
+            }
+
+            .page {
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ════════ PAGE 1 ════════ -->
+    <div class="page page-1">
+        <div class="hero-banner">
+            <img class="logo" src="assets/images/logo/kinetik-logo.png" alt="Kinetik Wind Power">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Trusted Wind Energy Partner
+            </div>
+            <h1>Powering Tomorrow,<br><span class="accent">Sustainably</span></h1>
+            <p>End-to-end wind turbine installation, operation & maintenance solutions — led by 25+ years of industry
+                expertise.</p>
+        </div>
+
+        <div class="stats-strip">
+            <div class="stat">
+                <div class="number">25+</div>
+                <div class="label">Years Experience</div>
+            </div>
+            <div class="stat">
+                <div class="number">9+</div>
+                <div class="label">Core Services</div>
+            </div>
+            <div class="stat">
+                <div class="number">24/7</div>
+                <div class="label">Response Time</div>
+            </div>
+            <div class="stat">
+                <div class="number">600</div>
+                <div class="label">kW Capacity</div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <div>
+                <h2>About Us <span class="line"></span></h2>
+                <p>Kinetik Wind Power is a trusted provider of end-to-end solutions for the wind energy sector. Led by
+                    K. Ramachandran, who brings over 25 years of industry experience, we specialize in wind turbine
+                    installation, operation, and maintenance.</p>
+                <p>With a strong focus on innovation, reliability, and customer satisfaction, we help clients maximize
+                    the performance and lifespan of their wind energy assets across various capacities.</p>
+                <p><strong>Specialization:</strong> Vestas RRB make turbines — 225 kW, 500 kW & 600 kW</p>
+                <div class="about-highlights">
+                    <div class="highlight"><span class="icon">⚡</span> Vestas RRB Specialists</div>
+                    <div class="highlight"><span class="icon">🔧</span> End-to-End Solutions</div>
+                    <div class="highlight"><span class="icon">📊</span> Transparent Reporting</div>
+                    <div class="highlight"><span class="icon">🛡️</span> Safety First</div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="assets/images/gallery/wind-technicians.png" alt="About Kinetik">
+                <div class="badge">
+                    <div class="big">25+</div>
+                    Years in Wind Energy
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════ PAGE 2 ════════ -->
+    <div class="page page-2">
+        <div class="services-header">
+            <h2>Our Core Services <span class="line"></span></h2>
+            <p>Comprehensive wind energy solutions from installation to maintenance.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="svc-card">
+                <div class="svc-img"><img src="assets/images/services/electronics-module-testing.png" alt="Electronics">
+                </div>
+                <div class="svc-body">
+                    <h4>🔌 Electronics Module Service</h4>
+                    <p>Testing, service & replacement for electrical safety and accuracy.</p>
+                </div>
+            </div>
+            <div class="svc-card">
+                <div class="svc-img"><img src="assets/images/services/panel-rewiring-01.png" alt="Panel Rewiring"></div>
+                <div class="svc-body">
+                    <h4>🔄 Panel Rewiring</h4>
+                    <p>Upgrading electrical panels for improved efficiency & compliance.</p>
+                </div>
+            </div>
+            <div class="svc-card">
+                <div class="svc-img"><img src="assets/images/services/cable-joint-field.png" alt="Cable Joint"></div>
+                <div class="svc-body">
+                    <h4>🔗 Cable Joint (up to 33kV)</h4>
+                    <p>Connecting & repairing low to high-voltage cables on site.</p>
+                </div>
+            </div>
+            <div class="svc-card">
+                <div class="svc-img"><img src="assets/images/services/hydraulic-yaw-unit.jpeg" alt="Hydraulic"></div>
+                <div class="svc-body">
+                    <h4>⚙️ Hydraulic & Yaw Unit</h4>
+                    <p>On-site servicing and testing for optimal turbine control.</p>
+                </div>
+            </div>
+            <div class="svc-card">
+                <div class="svc-img"><img src="assets/images/services/generator-service-01.jpeg" alt="Generator"></div>
+                <div class="svc-body">
+                    <h4>🔋 Generator Services</h4>
+                    <p>Cooling fan, bearing replacement & alignment at nacelle top.</p>
+                </div>
+            </div>
+            <div class="svc-card">
+                <div class="svc-img"><img src="assets/images/services/gearbox-service.jpeg" alt="Gearbox"></div>
+                <div class="svc-body">
+                    <h4>🏭 Gearbox Service</h4>
+                    <p>Shaft, bearing, gear pump & V-ring replacement at nacelle.</p>
+                </div>
+            </div>
+            <div class="svc-card">
+                <div class="svc-img"><img src="assets/images/services/spare-parts.jpeg" alt="Spare Parts"></div>
+                <div class="svc-body">
+                    <h4>📦 Spare Parts Supply</h4>
+                    <p>Sourcing and supplying quality turbine components.</p>
+                </div>
+            </div>
+            <div class="svc-card">
+                <div class="svc-img"><img src="assets/images/services/nacelle-refurbishment-02.jpeg"
+                        alt="Refurbishment"></div>
+                <div class="svc-body">
+                    <h4>🔥 Nacelle Refurbishment</h4>
+                    <p>Repair & restoration of fire-damaged nacelles and panels.</p>
+                </div>
+            </div>
+            <div class="svc-card">
+                <div class="svc-img"><img src="assets/images/services/installation-site.jpeg" alt="Installation"></div>
+                <div class="svc-body">
+                    <h4>🏗️ Installation & Commissioning</h4>
+                    <p>Full turbine installation & erection — Vestas RRB specialist.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="why-strip">
+            <div class="why-item">
+                <div class="icon">👷</div>
+                <h4>Expert Team</h4>
+                <p>25+ years of hands-on wind energy expertise</p>
+            </div>
+            <div class="why-item">
+                <div class="icon">⚡</div>
+                <h4>Fastest Response</h4>
+                <p>Industry-leading fault response time</p>
+            </div>
+            <div class="why-item">
+                <div class="icon">📋</div>
+                <h4>Transparent Reports</h4>
+                <p>Clear, detailed service reporting</p>
+            </div>
+            <div class="why-item">
+                <div class="icon">💰</div>
+                <h4>Honest Billing</h4>
+                <p>No hidden costs, upfront pricing</p>
+            </div>
+        </div>
+
+        <div class="contact-bar">
+            <div class="brand-col">
+                <img src="assets/images/logo/kinetik-logo.png" alt="Kinetik Wind Power">
+                <p>Trusted provider of end-to-end wind turbine installation, operation & maintenance solutions.</p>
+            </div>
+            <div>
+                <h4>Contact Us</h4>
+                <div class="contact-item"><span class="ci-icon">📍</span><span>No:8/60 E2, 5th Cross Street,<br>Star
+                        City, Kavalkinaru,<br>Tirunelveli – 627 105, Tamil Nadu</span></div>
+                <div class="contact-item"><span class="ci-icon">📞</span><span>+91 99434 31764</span></div>
+                <div class="contact-item"><span class="ci-icon">✉️</span><span>kinetikwindpower79@gmail.com</span></div>
+            </div>
+            <div>
+                <h4>Our Team</h4>
+                <div class="team-list">
+                    <strong>K. Ramachandran</strong> — MD<br>
+                    <strong>G. Samraj</strong> — Executive Mgr<br>
+                    <strong>R. Rinose</strong> — CT Service Mgr<br>
+                    <strong>T. Sunder Raj</strong> — Project Mgr<br>
+                    <strong>B. Saji</strong> — Service Mgr<br>
+                    <strong>S. Ananthakrishnan</strong> — Electrical Eng<br>
+                    <strong>C. Senthil Kumar</strong> — Mech Supervisor
+                </div>
+            </div>
+        </div>
+        <div class="footer-line"></div>
+    </div>
+
+</body>
+
+</html>
